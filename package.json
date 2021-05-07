@@ -1,0 +1,22 @@
+{
+  "name": "cypress-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardimaoka/cypress-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardimaoka/cypress-sandbox/issues"
+  },
+  "homepage": "https://github.com/richardimaoka/cypress-sandbox#readme",
+  "devDependencies": {
+    "cypress": "^7.2.0"
+  }
+}
