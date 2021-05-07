@@ -16,25 +16,24 @@ describe("The Home Page", () => {
       .as("currentUser");
   });
 
-  it('sets auth cookie when logging in via form submission', function () {
+  it("sets auth cookie when logging in via form submission", function () {
     // destructuring assignment of the this.currentUser object
-    const { username, password } = this.currentUser
+    const { username, password } = this.currentUser;
 
-    cy.visit('/login')
+    cy.visit("/login");
 
-    cy.get('input[name=username]').type(username)
+    cy.get("input[name=username]").type(username);
 
     // {enter} causes the form to submit
-    cy.get('input[name=password]').type(`${password}{enter}`)
+    cy.get("input[name=password]").type(`${password}{enter}`);
 
     // we should be redirected to /dashboard
-    cy.url().should('include', '/dashboard')
+    cy.url().should("include", "/dashboard");
 
     // our auth cookie should be present
-    cy.getCookie('your-session-cookie').should('exist')
+    cy.getCookie("your-session-cookie").should("exist");
 
     // UI should reflect this user being logged in
-    cy.get('h1').should('contain', 'jane.lane')
-  })
-})
+    cy.get("h1").should("contain", "jane.lane");
+  });
 });
