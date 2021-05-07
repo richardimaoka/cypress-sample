@@ -16,19 +16,19 @@ describe("The Home Page", () => {
       .as("currentUser");
   });
 
-  it("sets auth cookie when logging in via form submission", function () {
+  it("logs in programmatically without using the UI", function () {
     // destructuring assignment of the this.currentUser object
     const { username, password } = this.currentUser;
 
-    cy.visit("/login");
+    // programmatically log us in without needing the UI
+    cy.request("POST", "/login", {
+      username,
+      password,
+    });
 
-    cy.get("input[name=username]").type(username);
-
-    // {enter} causes the form to submit
-    cy.get("input[name=password]").type(`${password}{enter}`);
-
-    // we should be redirected to /dashboard
-    cy.url().should("include", "/dashboard");
+    // now that we're logged in, we can visit
+    // any kind of restricted route!
+    cy.visit("/dashboard");
 
     // our auth cookie should be present
     cy.getCookie("your-session-cookie").should("exist");
