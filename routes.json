@@ -1,0 +1,5 @@
+{
+  "/test/seed/post": "/posts",
+  "/test/seed/user": "/users",
+  "/test/posts": "/posts"
+}
